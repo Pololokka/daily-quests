@@ -172,24 +172,59 @@ select {
 
 :root {
   /*fonte*/
-  --fonte-printicpal: "Pathway Gothic One", sans-serif;
+  --fonte-principal: "Pathway Gothic One", sans-serif;
   --fonte-tamanho-titulo: 3rem;
   --fonte-tamanho-subtitulo: 2rem;
   --fonte-tamanho-texto: 1.5rem;
   --fonte-tamanho-pq: 1rem;
+
+  /*cor*/
+  --cor-fonte: #f0ead6;
+  --cor--fonte-hover: #d8cbae;
+
+  --cor-claro-componente: #0a2b86;
+  --cor-escuro-componente: #080b38;
+
+  --cor-fundo-escuro: #5b1261;
+  --cor-fundo-claro: #bb25c9;
 }
 
 .titulo {
-  font-family: var(--fonte-printicpal);
+  font-family: var(--fonte-principal);
   font-size: var(--fonte-tamanho-titulo);
+  color: var(--cor-fonte);
+  padding: 0.5em;
 }
 
 .subtitulo {
-  font-family: var(--fonte-printicpal);
+  font-family: var(--fonte-principal);
   font-size: var(--fonte-tamanho-subtitulo);
+  color: var(--cor-fonte);
+  padding: 0.5em;
 }
 
 .texto {
-  font-family: var(--fonte-printicpal);
+  font-family: var(--fonte-principal);
   font-size: var(--fonte-tamanho-texto);
+  color: var(--cor-fonte);
+  padding: 0.5em;
+}
+
+html {
+  background: linear-gradient(
+    250deg,
+    var(--cor-fundo-escuro),
+    var(--cor-fundo-claro)
+  );
+}
+
+.App {
+  width: 50%;
+  margin: 2em auto;
+  background-color: var(--cor-escuro-componente);
+  border-radius: 5px;
+}
+
+.form__header {
+  text-align: center;
 }
