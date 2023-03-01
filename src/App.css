@@ -172,24 +172,104 @@ select {
 
 :root {
   /*fonte*/
-  --fonte-printicpal: "Pathway Gothic One", sans-serif;
+  --fonte-principal: "Pathway Gothic One", sans-serif;
   --fonte-tamanho-titulo: 3rem;
   --fonte-tamanho-subtitulo: 2rem;
   --fonte-tamanho-texto: 1.5rem;
   --fonte-tamanho-pq: 1rem;
+
+  /*cor*/
+  --cor-fonte: #f0ead6;
+  --cor-fonte-hover: #d8cbae;
+  --cor-fonte-sombra: #080b38;
+
+  --cor-fundo-input: #d8cbae;
+  --cor-fonte-input: #080b38;
+
+  --cor-claro-componente: #0a2b86;
+  --cor-escuro-componente: #080b38;
+
+  --cor-fundo-escuro: #5b1261;
+  --cor-fundo-claro: #bb25c9;
 }
 
 .titulo {
-  font-family: var(--fonte-printicpal);
+  font-family: var(--fonte-principal);
   font-size: var(--fonte-tamanho-titulo);
+  color: var(--cor-fonte);
+  padding: 0.5em;
 }
 
 .subtitulo {
-  font-family: var(--fonte-printicpal);
+  font-family: var(--fonte-principal);
   font-size: var(--fonte-tamanho-subtitulo);
+  color: var(--cor-fonte);
+  padding: 0.5em;
 }
 
 .texto {
-  font-family: var(--fonte-printicpal);
+  font-family: var(--fonte-principal);
   font-size: var(--fonte-tamanho-texto);
+  color: var(--cor-fonte);
+  padding: 0.5em;
+}
+
+html {
+  background: linear-gradient(
+    270deg,
+    var(--cor-fundo-escuro),
+    var(--cor-fundo-claro)
+  );
+}
+
+.App {
+  width: 50%;
+  margin: 2em auto;
+  background-color: var(--cor-escuro-componente);
+  border-radius: 5px;
+}
+
+.form__header {
+  text-align: center;
+}
+
+.form__tarefa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form__controle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__geral {
+  color: var(--cor-fonte-input);
+  background-color: var(--cor-fundo-input);
+  padding: 0.25em;
+  border-radius: 10px;
+  width: 200%;
+}
+
+.btn__geral {
+  background-color: var(--cor-claro-componente);
+  margin: 0.5em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.btn__geral:hover {
+  color: var(--cor-fonte-hover);
+  transform: scale(1.05);
+  text-shadow: 3px 2px var(--cor-fonte-sombra);
+}
+
+.btn__geral:active {
+  transform: scale(0.95);
 }
