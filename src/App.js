@@ -6,7 +6,13 @@ import { GiBattleAxe, GiDreadSkull, GiDungeonGate } from "react-icons/gi";
 function App() {
   const [titulo, setTitulo] = useState("");
   const [tempo, setTempo] = useState("");
+  const [etapaP, setEtapaP] = useState("");
+  const [etapaS, setEtapaS] = useState("");
+  const [etapaT, setEtapaT] = useState("");
+  const [etapaQ, setEtapaQ] = useState("");
+
   const [tarefa, setTarefa] = useState([]);
+
   const [load, setLoad] = useState(false);
 
   // carrega as tarefas já existentes
@@ -31,6 +37,10 @@ function App() {
       id: Math.random(),
       titulo,
       tempo,
+      etapaP,
+      etapaS,
+      etapaT,
+      etapaQ,
       feita: false,
     };
 
@@ -43,6 +53,10 @@ function App() {
 
     setTitulo("");
     setTempo("");
+    setEtapaP("");
+    setEtapaS("");
+    setEtapaT("");
+    setEtapaQ("");
   };
 
   return (
@@ -70,15 +84,68 @@ function App() {
 
           <div className="form__controle">
             <label htmlFor="tempo" className="texto">
-              E em quanto tempo ce faz?
+              E é pra quando?
             </label>
             <input
-              type="text"
+              type="date"
               name="tempo"
               className="texto input__geral"
               onChange={(evento) => setTempo(evento.target.value)}
               value={tempo || ""}
               required
+            />
+          </div>
+
+          <div className="form__controle">
+            <p className="texto">E como que é pra fazer?</p>
+            <label htmlFor="etapa" className="texto">
+              Etapa 1
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaP(evento.target.value)}
+              value={etapaP || ""}
+            />
+          </div>
+
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 2
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaS(evento.target.value)}
+              value={etapaS || ""}
+            />
+          </div>
+
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 3
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaT(evento.target.value)}
+              value={etapaT || ""}
+            />
+          </div>
+
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 4
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaQ(evento.target.value)}
+              value={etapaQ || ""}
             />
           </div>
 
@@ -98,6 +165,11 @@ function App() {
         {tarefa.map((tarefa) => (
           <div className="tarefas__container" key={tarefa.id}>
             <p className="texto">{tarefa.titulo}</p>
+            <p className="texto">{tarefa.tempo}</p>
+            {tarefa.etapaP !== "" && <p className="texto">{tarefa.etapaP}</p>}
+            {tarefa.etapaS !== "" && <p className="texto">{tarefa.etapaS}</p>}
+            {tarefa.etapaT !== "" && <p className="texto">{tarefa.etapaT}</p>}
+            {tarefa.etapaQ !== "" && <p className="texto">{tarefa.etapaQ}</p>}
           </div>
         ))}
       </div>
