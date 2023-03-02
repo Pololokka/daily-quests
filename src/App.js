@@ -1,13 +1,34 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
+import { GiBattleAxe, GiDreadSkull, GiDungeonGate } from "react-icons/gi";
 
 function App() {
   const [titulo, setTitulo] = useState("");
   const [tempo, setTempo] = useState("");
+  const [etapaP, setEtapaP] = useState("");
+  const [etapaS, setEtapaS] = useState("");
+  const [etapaT, setEtapaT] = useState("");
+  const [etapaQ, setEtapaQ] = useState("");
+
   const [tarefa, setTarefa] = useState([]);
+
   const [load, setLoad] = useState(false);
+
+  // carrega as tarefas já existentes
+
+  useEffect(() => {
+    setLoad(true);
+
+    const tarefasCarregadas =
+      JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
+
+    setTarefa(tarefasCarregadas);
+
+    setLoad(false);
+  }, []);
+
+  // cria nova tarefa e coloca no local storage
 
   const handleEnvia = (evento) => {
     evento.preventDefault();
@@ -16,13 +37,26 @@ function App() {
       id: Math.random(),
       titulo,
       tempo,
+      etapaP,
+      etapaS,
+      etapaT,
+      etapaQ,
       feita: false,
     };
 
-    console.log(novaTarefa);
+    tarefa.push(novaTarefa);
+
+    const arrayTarefas = JSON.stringify(tarefa);
+    localStorage.setItem("arrayAfazeres", arrayTarefas);
+
+    console.log(tarefa);
 
     setTitulo("");
     setTempo("");
+    setEtapaP("");
+    setEtapaS("");
+    setEtapaT("");
+    setEtapaQ("");
   };
 
   return (
@@ -44,21 +78,79 @@ function App() {
               className="texto input__geral"
               onChange={(evento) => setTitulo(evento.target.value)}
               value={titulo || ""}
+              placeholder="Pegar minha espada com a dama do lago"
               required
             />
           </div>
 
           <div className="form__controle">
             <label htmlFor="tempo" className="texto">
-              E em quanto tempo ce faz?
+              E é pra quando?
             </label>
             <input
-              type="text"
+              type="date"
               name="tempo"
               className="texto input__geral"
               onChange={(evento) => setTempo(evento.target.value)}
               value={tempo || ""}
               required
+            />
+          </div>
+
+          <div className="form__controle">
+            <p className="texto">E como que é pra fazer?(Opcional)</p>
+            <label htmlFor="etapa" className="texto">
+              Etapa 1
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaP(evento.target.value)}
+              placeholder="Dar um pulo na casa do Merlin"
+              value={etapaP || ""}
+            />
+          </div>
+
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 2
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaS(evento.target.value)}
+              placeholder="Ver se tá tudo certo com a Guinevere"
+              value={etapaS || ""}
+            />
+          </div>
+
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 3
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaT(evento.target.value)}
+              placeholder="Mandar um salve pro Lancelot"
+              value={etapaT || ""}
+            />
+          </div>
+
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 4
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaQ(evento.target.value)}
+              placeholder="Pegar a espada e virar rei"
+              value={etapaQ || ""}
             />
           </div>
 
@@ -75,6 +167,24 @@ function App() {
         {tarefa.length === 0 && (
           <p className="texto">Sem missão hoje, chefe...</p>
         )}
+        {tarefa.map((tarefa) => (
+          <div className="tarefas__container" key={tarefa.id}>
+            <p className="texto__tarefa">{tarefa.titulo}</p>
+            <p className="texto__tarefa">{tarefa.tempo}</p>
+            {tarefa.etapaP !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaP}</p>
+            )}
+            {tarefa.etapaS !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaS}</p>
+            )}
+            {tarefa.etapaT !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaT}</p>
+            )}
+            {tarefa.etapaQ !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaQ}</p>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
