@@ -1,13 +1,28 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
+import { GiBattleAxe, GiDreadSkull, GiDungeonGate } from "react-icons/gi";
 
 function App() {
   const [titulo, setTitulo] = useState("");
   const [tempo, setTempo] = useState("");
   const [tarefa, setTarefa] = useState([]);
   const [load, setLoad] = useState(false);
+
+  // carrega as tarefas já existentes
+
+  useEffect(() => {
+    setLoad(true);
+
+    const tarefasCarregadas =
+      JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
+
+    setTarefa(tarefasCarregadas);
+
+    setLoad(false);
+  }, []);
+
+  // cria nova tarefa e coloca no local storage
 
   const handleEnvia = (evento) => {
     evento.preventDefault();
@@ -19,7 +34,12 @@ function App() {
       feita: false,
     };
 
-    console.log(novaTarefa);
+    tarefa.push(novaTarefa);
+
+    const arrayTarefas = JSON.stringify(tarefa);
+    localStorage.setItem("arrayAfazeres", arrayTarefas);
+
+    console.log(tarefa);
 
     setTitulo("");
     setTempo("");
@@ -75,6 +95,11 @@ function App() {
         {tarefa.length === 0 && (
           <p className="texto">Sem missão hoje, chefe...</p>
         )}
+        {tarefa.map((tarefa) => (
+          <div className="tarefas__container" key={tarefa.id}>
+            <p className="texto">{tarefa.titulo}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
