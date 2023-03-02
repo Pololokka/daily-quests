@@ -78,6 +78,7 @@ function App() {
               className="texto input__geral"
               onChange={(evento) => setTitulo(evento.target.value)}
               value={titulo || ""}
+              placeholder="Pegar minha espada com a dama do lago"
               required
             />
           </div>
@@ -97,7 +98,7 @@ function App() {
           </div>
 
           <div className="form__controle">
-            <p className="texto">E como que é pra fazer?</p>
+            <p className="texto">E como que é pra fazer?(Opcional)</p>
             <label htmlFor="etapa" className="texto">
               Etapa 1
             </label>
@@ -106,6 +107,7 @@ function App() {
               name="etapa"
               className="texto input__geral"
               onChange={(evento) => setEtapaP(evento.target.value)}
+              placeholder="Dar um pulo na casa do Merlin"
               value={etapaP || ""}
             />
           </div>
@@ -119,6 +121,7 @@ function App() {
               name="etapa"
               className="texto input__geral"
               onChange={(evento) => setEtapaS(evento.target.value)}
+              placeholder="Ver se tá tudo certo com a Guinevere"
               value={etapaS || ""}
             />
           </div>
@@ -132,6 +135,7 @@ function App() {
               name="etapa"
               className="texto input__geral"
               onChange={(evento) => setEtapaT(evento.target.value)}
+              placeholder="Mandar um salve pro Lancelot"
               value={etapaT || ""}
             />
           </div>
@@ -145,6 +149,7 @@ function App() {
               name="etapa"
               className="texto input__geral"
               onChange={(evento) => setEtapaQ(evento.target.value)}
+              placeholder="Pegar a espada e virar rei"
               value={etapaQ || ""}
             />
           </div>
@@ -164,12 +169,20 @@ function App() {
         )}
         {tarefa.map((tarefa) => (
           <div className="tarefas__container" key={tarefa.id}>
-            <p className="texto">{tarefa.titulo}</p>
-            <p className="texto">{tarefa.tempo}</p>
-            {tarefa.etapaP !== "" && <p className="texto">{tarefa.etapaP}</p>}
-            {tarefa.etapaS !== "" && <p className="texto">{tarefa.etapaS}</p>}
-            {tarefa.etapaT !== "" && <p className="texto">{tarefa.etapaT}</p>}
-            {tarefa.etapaQ !== "" && <p className="texto">{tarefa.etapaQ}</p>}
+            <p className="texto__tarefa">{tarefa.titulo}</p>
+            <p className="texto__tarefa">{tarefa.tempo}</p>
+            {tarefa.etapaP !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaP}</p>
+            )}
+            {tarefa.etapaS !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaS}</p>
+            )}
+            {tarefa.etapaT !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaT}</p>
+            )}
+            {tarefa.etapaQ !== "" && (
+              <p className="texto__tarefa">{tarefa.etapaQ}</p>
+            )}
           </div>
         ))}
       </div>

@@ -225,6 +225,7 @@ html {
 .App {
   width: 50%;
   margin: 2em auto;
+  padding: 0.5em;
   background-color: var(--cor-escuro-componente);
   border-radius: 5px;
 }
@@ -272,4 +273,18 @@ html {
 
 .btn__geral:active {
   transform: scale(0.95);
+}
+
+.tarefas__container {
+  background-color: var(--cor-claro-componente);
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+.texto__tarefa {
+  font-family: var(--fonte-principal);
+  font-size: var(--fonte-tamanho-texto);
+  color: var(--cor-fonte);
+  padding: 0.1em;
 }
