@@ -35,7 +35,7 @@ function App() {
       etapaS,
       etapaT,
       etapaQ,
-      feita: false,
+      feita: true,
     };
 
     tarefa.push(novaTarefa);
@@ -52,8 +52,6 @@ function App() {
   };
 
   const handleDeleta = (id) => {
-    //const tarefasCarregadas = JSON.parse(localStorage.getItem("arrayAfazeres"));
-
     const index = tarefa.findIndex((elemento) => elemento.id === id);
 
     tarefa.splice(index, 1);
@@ -64,6 +62,22 @@ function App() {
     localStorage.setItem("arrayAfazeres", arrayTarefas);
 
     setTarefa((prevState) => prevState.filter((tarefa) => tarefa.id !== id));
+  };
+
+  const handleConcluir = (tarefa) => {
+    tarefa.feita = !tarefa.feita;
+    console.log(tarefa);
+
+    const tarefasCarregadas =
+      JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
+
+    setTarefa((prevState) =>
+      prevState.map((tarefa) =>
+        tarefa.id === tarefasCarregadas.id
+          ? (tarefa = tarefasCarregadas)
+          : tarefa
+      )
+    );
   };
 
   return (
@@ -181,7 +195,10 @@ function App() {
             >
               {tarefa.titulo}
             </h3>
-            <span className="icon__style">
+            <span
+              className="icon__style"
+              onClick={() => handleConcluir(tarefa)}
+            >
               <GiBattleAxe />
             </span>
             <span
