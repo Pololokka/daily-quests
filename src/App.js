@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import { GiBattleAxe, GiDreadSkull, GiDungeonGate } from "react-icons/gi";
+import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
 
 function App() {
   const [titulo, setTitulo] = useState("");
@@ -63,7 +63,7 @@ function App() {
     const arrayTarefas = JSON.stringify(tarefa);
     localStorage.setItem("arrayAfazeres", arrayTarefas);
 
-    setTarefa(tarefa);
+    setTarefa((prevState) => prevState.filter((tarefa) => tarefa.id !== id));
   };
 
   return (
@@ -163,8 +163,8 @@ function App() {
 
           <input
             type="submit"
-            value="Postar Missão"
             className="texto btn__geral"
+            value="Postar Missão"
           />
         </form>
       </div>

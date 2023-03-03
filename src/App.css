@@ -254,7 +254,7 @@ html {
   background-color: var(--cor-fundo-input);
   padding: 0.25em;
   border-radius: 10px;
-  width: 200%;
+  width: 150%;
 }
 
 .btn__geral {
