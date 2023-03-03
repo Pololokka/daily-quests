@@ -35,7 +35,7 @@ function App() {
       etapaS,
       etapaT,
       etapaQ,
-      feita: true,
+      feita: false,
     };
 
     tarefa.push(novaTarefa);
@@ -70,6 +70,9 @@ function App() {
 
     const tarefasCarregadas =
       JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
+
+    const arrayTarefas = JSON.stringify(tarefa);
+    localStorage.setItem("arrayAfazeres", arrayTarefas);
 
     setTarefa((prevState) =>
       prevState.map((tarefa) =>
