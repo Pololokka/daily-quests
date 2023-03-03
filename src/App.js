@@ -56,29 +56,21 @@ function App() {
 
     tarefa.splice(index, 1);
 
-    console.log(tarefa);
-
     const arrayTarefas = JSON.stringify(tarefa);
     localStorage.setItem("arrayAfazeres", arrayTarefas);
 
     setTarefa((prevState) => prevState.filter((tarefa) => tarefa.id !== id));
   };
 
-  const handleConcluir = (tarefa) => {
-    tarefa.feita = !tarefa.feita;
-    console.log(tarefa);
-
-    const tarefasCarregadas =
-      JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
+  const handleConcluir = (elemento) => {
+    elemento.feita = !elemento.feita;
 
     const arrayTarefas = JSON.stringify(tarefa);
     localStorage.setItem("arrayAfazeres", arrayTarefas);
 
     setTarefa((prevState) =>
       prevState.map((tarefa) =>
-        tarefa.id === tarefasCarregadas.id
-          ? (tarefa = tarefasCarregadas)
-          : tarefa
+        tarefa.id === arrayTarefas.id ? (tarefa = arrayTarefas) : tarefa
       )
     );
   };
@@ -191,56 +183,68 @@ function App() {
         {tarefa.length === 0 && (
           <p className="texto">Sem missão hoje, chefe...</p>
         )}
-        {tarefa.map((tarefa) => (
-          <div className="tarefas__container" key={tarefa.id}>
+        {tarefa.map((elemento) => (
+          <div className="tarefas__container" key={elemento.id}>
             <h3
-              className={tarefa.feita ? "texto__tarefa-feita" : "texto__tarefa"}
+              className={
+                elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"
+              }
             >
-              {tarefa.titulo}
+              {elemento.titulo}
             </h3>
             <span
               className="icon__style"
-              onClick={() => handleConcluir(tarefa)}
+              onClick={() => handleConcluir(elemento)}
             >
               <GiBattleAxe />
             </span>
             <span
               className="icon__style"
-              onClick={() => handleDeleta(tarefa.id)}
+              onClick={() => handleDeleta(elemento.id)}
             >
               <GiDreadSkull />
             </span>
             <p
-              className={tarefa.feita ? "texto__tarefa-feita" : "texto__tarefa"}
+              className={
+                elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"
+              }
             >
-              {tarefa.tempo}
+              {elemento.tempo}
             </p>
-            {tarefa.etapaP !== "" && (
+            {elemento.etapaP !== "" && (
               <p
-                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
               >
-                {tarefa.etapaP}
+                {elemento.etapaP}
               </p>
             )}
-            {tarefa.etapaS !== "" && (
+            {elemento.etapaS !== "" && (
               <p
-                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
               >
-                {tarefa.etapaS}
+                {elemento.etapaS}
               </p>
             )}
-            {tarefa.etapaT !== "" && (
+            {elemento.etapaT !== "" && (
               <p
-                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
               >
-                {tarefa.etapaT}
+                {elemento.etapaT}
               </p>
             )}
-            {tarefa.etapaQ !== "" && (
+            {elemento.etapaQ !== "" && (
               <p
-                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
               >
-                {tarefa.etapaQ}
+                {elemento.etapaQ}
               </p>
             )}
           </div>
