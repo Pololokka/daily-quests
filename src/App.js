@@ -13,19 +13,13 @@ function App() {
 
   const [tarefa, setTarefa] = useState([]);
 
-  const [load, setLoad] = useState(false);
-
   // carrega as tarefas já existentes
 
   useEffect(() => {
-    setLoad(true);
-
     const tarefasCarregadas =
       JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
 
     setTarefa(tarefasCarregadas);
-
-    setLoad(false);
   }, []);
 
   // cria nova tarefa e coloca no local storage
@@ -49,14 +43,27 @@ function App() {
     const arrayTarefas = JSON.stringify(tarefa);
     localStorage.setItem("arrayAfazeres", arrayTarefas);
 
-    console.log(tarefa);
-
     setTitulo("");
     setTempo("");
     setEtapaP("");
     setEtapaS("");
     setEtapaT("");
     setEtapaQ("");
+  };
+
+  const handleDeleta = (id) => {
+    //const tarefasCarregadas = JSON.parse(localStorage.getItem("arrayAfazeres"));
+
+    const index = tarefa.findIndex((elemento) => elemento.id === id);
+
+    tarefa.splice(index, 1);
+
+    console.log(tarefa);
+
+    const arrayTarefas = JSON.stringify(tarefa);
+    localStorage.setItem("arrayAfazeres", arrayTarefas);
+
+    setTarefa(tarefa);
   };
 
   return (
@@ -169,19 +176,52 @@ function App() {
         )}
         {tarefa.map((tarefa) => (
           <div className="tarefas__container" key={tarefa.id}>
-            <p className="texto__tarefa">{tarefa.titulo}</p>
-            <p className="texto__tarefa">{tarefa.tempo}</p>
+            <h3
+              className={tarefa.feita ? "texto__tarefa-feita" : "texto__tarefa"}
+            >
+              {tarefa.titulo}
+            </h3>
+            <span className="icon__style">
+              <GiBattleAxe />
+            </span>
+            <span
+              className="icon__style"
+              onClick={() => handleDeleta(tarefa.id)}
+            >
+              <GiDreadSkull />
+            </span>
+            <p
+              className={tarefa.feita ? "texto__tarefa-feita" : "texto__tarefa"}
+            >
+              {tarefa.tempo}
+            </p>
             {tarefa.etapaP !== "" && (
-              <p className="texto__tarefa">{tarefa.etapaP}</p>
+              <p
+                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+              >
+                {tarefa.etapaP}
+              </p>
             )}
             {tarefa.etapaS !== "" && (
-              <p className="texto__tarefa">{tarefa.etapaS}</p>
+              <p
+                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+              >
+                {tarefa.etapaS}
+              </p>
             )}
             {tarefa.etapaT !== "" && (
-              <p className="texto__tarefa">{tarefa.etapaT}</p>
+              <p
+                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+              >
+                {tarefa.etapaT}
+              </p>
             )}
             {tarefa.etapaQ !== "" && (
-              <p className="texto__tarefa">{tarefa.etapaQ}</p>
+              <p
+                className={tarefa.feita ? "texto__etapa-feita" : "texto__etapa"}
+              >
+                {tarefa.etapaQ}
+              </p>
             )}
           </div>
         ))}

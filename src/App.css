@@ -288,3 +288,38 @@ html {
   color: var(--cor-fonte);
   padding: 0.1em;
 }
+
+.texto__tarefa-feita {
+  font-family: var(--fonte-principal);
+  font-size: var(--fonte-tamanho-texto);
+  color: var(--cor-fonte);
+  padding: 0.1em;
+  text-decoration: line-through;
+}
+
+.texto__etapa {
+  font-family: var(--fonte-principal);
+  font-size: var(--fonte-tamanho-pq);
+  color: var(--cor-fonte);
+  padding: 0.2em;
+}
+
+.texto__etapa-feita {
+  font-family: var(--fonte-principal);
+  font-size: var(--fonte-tamanho-pq);
+  color: var(--cor-fonte);
+  padding: 0.2em;
+  text-decoration: line-through;
+}
+
+.icon__style {
+  color: var(--cor-fonte);
+  margin-right: 0.5em;
+  cursor: pointer;
+  font-size: var(--fonte-tamanho-texto);
+  transition: 200ms;
+}
+
+.icon__style:hover {
+  color: var(--cor-fonte-hover);
+}
