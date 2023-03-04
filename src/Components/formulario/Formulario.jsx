@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const Formulario = () => {
-  let tarefas = JSON.parse(localStorage.getItem("arrayAfazeres")) || [];
   const [titulo, setTitulo] = useState("");
   const [tempo, setTempo] = useState("");
   const [etapaP, setEtapaP] = useState("");
@@ -141,3 +140,4 @@ const Formulario = () => {
 };
 
 export default Formulario;
+export var tarefas = JSON.parse(localStorage.getItem("arrayAfazeres")) || [];

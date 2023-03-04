@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="form__header">
-        <h1 className="titulo">Missões</h1>
+        <h1 className="titulo">Quadro de Avisos</h1>
       </header>
 
       <Formulario />

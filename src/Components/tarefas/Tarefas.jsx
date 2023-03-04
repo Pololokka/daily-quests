@@ -1,21 +1,18 @@
 import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
 import { useEffect, useState } from "react";
 
-import Formulario from "../formulario/Formulario";
-
 const Tarefas = () => {
   let arrayTarefas;
-  const teste = <Formulario />;
   const [tarefas, setTarefa] = useState(
     JSON.parse(localStorage.getItem("arrayAfazeres")) || []
   );
 
-  //   useEffect(() => {
-  //     const tarefasAtualizadas = JSON.parse(
-  //       localStorage.getItem("arrayAfazeres")
-  //     );
-  //     setTarefa(tarefasAtualizadas);
-  //   }, [localStorage]);
+  useEffect(() => {
+    const tarefasAtualizadas = JSON.parse(
+      localStorage.getItem("arrayAfazeres")
+    );
+    setTarefa(tarefasAtualizadas);
+  }, [tarefas]);
 
   const salvaTarefa = () => {
     arrayTarefas = JSON.stringify(tarefas);
@@ -36,6 +33,7 @@ const Tarefas = () => {
     elemento.feita = !elemento.feita;
 
     salvaTarefa();
+    console.log(tarefas);
 
     setTarefa((prevState) =>
       prevState.map((tarefa) =>
