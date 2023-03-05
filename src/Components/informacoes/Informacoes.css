@@ -1,0 +1,16 @@
+.info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  padding: 1em;
+}
+
+.input__info {
+  color: var(--cor-fonte-input);
+  background-color: var(--cor-fundo-input);
+  padding: 0.25em;
+  border-radius: 10px;
+  width: 50%;
+}

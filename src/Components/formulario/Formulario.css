@@ -1,0 +1,18 @@
+.form__header {
+  text-align: center;
+}
+
+.form__tarefa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form__controle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
