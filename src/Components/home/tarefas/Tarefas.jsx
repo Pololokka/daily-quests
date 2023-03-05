@@ -13,7 +13,7 @@ const Tarefas = () => {
       localStorage.getItem("arrayAfazeres")
     );
     setTarefa(tarefasAtualizadas);
-  }, [tarefas]);
+  });
 
   const salvaTarefa = () => {
     arrayTarefas = JSON.stringify(tarefas);
@@ -34,7 +34,6 @@ const Tarefas = () => {
     elemento.feita = !elemento.feita;
 
     salvaTarefa();
-    console.log(tarefas);
 
     setTarefa((prevState) =>
       prevState.map((tarefa) =>

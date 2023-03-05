@@ -1,19 +1,23 @@
 import "./App.css";
 
-import Informacoes from "./Components/informacoes/Informacoes";
-import Formulario from "./Components/formulario/Formulario";
-import Tarefas from "./Components/tarefas/Tarefas";
+import Home from "./Components/home/Home";
+import Navegacao from "./Components/nav/Navegacao";
+
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="form__header">
-        <h1 className="titulo">Quadro de Avisos</h1>
+      <header className="app__cabecalho">
+        <nav className="nav__container">
+          <Navegacao />
+        </nav>
       </header>
-      <Informacoes />
-
-      <Formulario />
-      <Tarefas />
+      <main className="app__container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
     </div>
   );
 }

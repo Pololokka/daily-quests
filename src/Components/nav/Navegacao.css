@@ -1,0 +1,16 @@
+.lista__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link__nav {
+  padding: 0 1em;
+  transition: 200ms;
+}
+
+.link__nav:hover {
+  color: var(--cor-fonte-hover);
+  transform: scale(1.1);
+  text-shadow: 3px 2px var(--cor-fonte-sombra);
+}
