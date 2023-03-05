@@ -1,10 +1,10 @@
 .info__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   text-align: center;
-  padding: 1em;
+}
+
+.info__form {
+  width: 100%;
+  text-align: center;
 }
 
 .input__info {

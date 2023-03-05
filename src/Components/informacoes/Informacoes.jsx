@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 
 const Informacoes = () => {
   const [nome, setNome] = useState("");
+  let userInfo = {
+    classe: "Cidadão",
+    titulo: "Pagador/a de taxas",
+  };
   // pega info do local storage pra colocar na tela
   //   const puxaItens = () => {
   //   };
@@ -12,38 +16,37 @@ const Informacoes = () => {
     setNome(nomeSalvo);
   }, []);
 
-  const salvaItens = () => {
-    const nomePc = JSON.stringify(nome);
+  const salvaItens = (valor) => {
+    const nomePc = JSON.stringify(valor);
     localStorage.setItem("nomeJogador", nomePc);
   };
 
-  let testeInfo = {
-    classe: "Cidadão",
-    titulo: "Pagador/a de taxas",
-  };
-
-  const handleNome = (evento) => {
-    const nomeSalvar = evento.target.value;
-    setNome(nomeSalvar);
-    salvaItens();
-    console.log(nomeSalvar);
+  const handleNome = (valor) => {
+    setNome(valor);
+    salvaItens(valor);
   };
 
   return (
     <div className="info__container">
-      <label htmlFor="pc-nome" className="texto">
-        Nome:
-      </label>
-      <input
-        type="text"
-        name="pc-nome"
-        className="texto input__info"
-        onInput={(evento) => handleNome(evento)}
-        value={nome || ""}
-      />
-      <p className="texto">
-        Personagem: {nome}, {testeInfo.classe}, {testeInfo.titulo}
-      </p>
+      <form className="info__form">
+        <label htmlFor="pc-nome" className="texto">
+          Nome:
+        </label>
+        <input
+          type="text"
+          name="pc-nome"
+          className="texto input__info"
+          onChange={(evento) => handleNome(evento.target.value)}
+          value={nome || ""}
+        />
+      </form>
+
+      <div className="tarefas__container">
+        <h2 className="subtitulo">Ficha</h2>
+        <p className="texto">
+          {nome}, {userInfo.classe}, {userInfo.titulo}
+        </p>
+      </div>
     </div>
   );
 };
