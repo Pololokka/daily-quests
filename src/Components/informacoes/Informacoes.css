@@ -1,0 +1,16 @@
+.info__container {
+  text-align: center;
+}
+
+.info__form {
+  width: 100%;
+  text-align: center;
+}
+
+.input__info {
+  color: var(--cor-fonte-input);
+  background-color: var(--cor-fundo-input);
+  padding: 0.25em;
+  border-radius: 10px;
+  width: 50%;
+}

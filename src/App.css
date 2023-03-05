@@ -230,25 +230,6 @@ html {
   border-radius: 5px;
 }
 
-.form__header {
-  text-align: center;
-}
-
-.form__tarefa {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.form__controle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .input__geral {
   color: var(--cor-fonte-input);
   background-color: var(--cor-fundo-input);
@@ -273,43 +254,6 @@ html {
 
 .btn__geral:active {
   transform: scale(0.95);
-}
-
-.tarefas__container {
-  background-color: var(--cor-claro-componente);
-  margin: 0.5em;
-  padding: 0.5em;
-  border-radius: 10px;
-}
-
-.texto__tarefa {
-  font-family: var(--fonte-principal);
-  font-size: var(--fonte-tamanho-texto);
-  color: var(--cor-fonte);
-  padding: 0.1em;
-}
-
-.texto__tarefa-feita {
-  font-family: var(--fonte-principal);
-  font-size: var(--fonte-tamanho-texto);
-  color: var(--cor-fonte);
-  padding: 0.1em;
-  text-decoration: line-through;
-}
-
-.texto__etapa {
-  font-family: var(--fonte-principal);
-  font-size: var(--fonte-tamanho-pq);
-  color: var(--cor-fonte);
-  padding: 0.2em;
-}
-
-.texto__etapa-feita {
-  font-family: var(--fonte-principal);
-  font-size: var(--fonte-tamanho-pq);
-  color: var(--cor-fonte);
-  padding: 0.2em;
-  text-decoration: line-through;
 }
 
 .icon__style {

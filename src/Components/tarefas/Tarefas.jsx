@@ -1,3 +1,4 @@
+import "./Tarefas.css";
 import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
 import { useEffect, useState } from "react";
 
