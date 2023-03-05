@@ -222,7 +222,11 @@ html {
   );
 }
 
-.App {
+.app__cabecalho {
+  background-color: var(--cor-escuro-componente);
+}
+
+.app__container {
   width: 50%;
   margin: 2em auto;
   padding: 0.5em;
