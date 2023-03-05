@@ -13,7 +13,7 @@ const Tarefas = () => {
       localStorage.getItem("arrayAfazeres")
     );
     setTarefa(tarefasAtualizadas);
-  }, []);
+  }, [tarefas]);
 
   const salvaTarefa = () => {
     arrayTarefas = JSON.stringify(tarefas);
