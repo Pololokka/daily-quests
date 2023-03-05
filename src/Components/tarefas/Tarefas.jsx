@@ -46,63 +46,77 @@ const Tarefas = () => {
   return (
     <div className="lista__tarefas">
       <h2 className="subtitulo">Missões já postadas</h2>
-      {tarefas.length === 0 && (
+      {tarefas == null || tarefas.length === 0 ? (
         <p className="texto">Sem missão hoje, chefe...</p>
+      ) : (
+        tarefas.map((elemento) => (
+          <div className="tarefas__container" key={elemento.id}>
+            <h3
+              className={
+                elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"
+              }
+            >
+              {elemento.titulo}
+            </h3>
+            <span
+              className="icon__style"
+              onClick={() => handleConcluir(elemento)}
+            >
+              <GiBattleAxe />
+            </span>
+            <span
+              className="icon__style"
+              onClick={() => handleDeleta(elemento.id)}
+            >
+              <GiDreadSkull />
+            </span>
+            <p
+              className={
+                elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"
+              }
+            >
+              {elemento.tempo}
+            </p>
+            {elemento.etapaP !== "" && (
+              <p
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
+              >
+                {elemento.etapaP}
+              </p>
+            )}
+            {elemento.etapaS !== "" && (
+              <p
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
+              >
+                {elemento.etapaS}
+              </p>
+            )}
+            {elemento.etapaT !== "" && (
+              <p
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
+              >
+                {elemento.etapaT}
+              </p>
+            )}
+            {elemento.etapaQ !== "" && (
+              <p
+                className={
+                  elemento.feita ? "texto__etapa-feita" : "texto__etapa"
+                }
+              >
+                {elemento.etapaQ}
+              </p>
+            )}
+          </div>
+        ))
       )}
-      {tarefas.map((elemento) => (
-        <div className="tarefas__container" key={elemento.id}>
-          <h3
-            className={elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"}
-          >
-            {elemento.titulo}
-          </h3>
-          <span
-            className="icon__style"
-            onClick={() => handleConcluir(elemento)}
-          >
-            <GiBattleAxe />
-          </span>
-          <span
-            className="icon__style"
-            onClick={() => handleDeleta(elemento.id)}
-          >
-            <GiDreadSkull />
-          </span>
-          <p
-            className={elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"}
-          >
-            {elemento.tempo}
-          </p>
-          {elemento.etapaP !== "" && (
-            <p
-              className={elemento.feita ? "texto__etapa-feita" : "texto__etapa"}
-            >
-              {elemento.etapaP}
-            </p>
-          )}
-          {elemento.etapaS !== "" && (
-            <p
-              className={elemento.feita ? "texto__etapa-feita" : "texto__etapa"}
-            >
-              {elemento.etapaS}
-            </p>
-          )}
-          {elemento.etapaT !== "" && (
-            <p
-              className={elemento.feita ? "texto__etapa-feita" : "texto__etapa"}
-            >
-              {elemento.etapaT}
-            </p>
-          )}
-          {elemento.etapaQ !== "" && (
-            <p
-              className={elemento.feita ? "texto__etapa-feita" : "texto__etapa"}
-            >
-              {elemento.etapaQ}
-            </p>
-          )}
-        </div>
-      ))}
+      {}
     </div>
   );
 };
