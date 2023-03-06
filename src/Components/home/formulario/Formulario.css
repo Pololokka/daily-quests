@@ -1,7 +1,3 @@
-.form__header {
-  text-align: center;
-}
-
 .form__tarefa {
   display: flex;
   flex-direction: column;

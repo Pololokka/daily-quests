@@ -2,6 +2,7 @@ import "./App.css";
 
 import Home from "./Components/home/Home";
 import Navegacao from "./Components/nav/Navegacao";
+import Loja from "./Components/loja/Loja";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function App() {
       <main className="app__container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/mercador" element={<Loja />} />
         </Routes>
       </main>
     </div>

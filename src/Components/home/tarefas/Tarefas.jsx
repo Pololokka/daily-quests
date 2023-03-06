@@ -58,14 +58,16 @@ const Tarefas = () => {
               {elemento.titulo}
             </h3>
             <span
-              className="icon__style"
+              className="icon__style my-anchor-element"
               onClick={() => handleConcluir(elemento)}
+              data-tooltip-content="Atacar tarefa!"
             >
               <GiBattleAxe />
             </span>
             <span
-              className="icon__style"
+              className="icon__style my-anchor-element"
               onClick={() => handleDeleta(elemento.id)}
+              data-tooltip-content="Despachar o inimigo"
             >
               <GiDreadSkull />
             </span>

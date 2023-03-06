@@ -234,6 +234,10 @@ html {
   border-radius: 5px;
 }
 
+.cont__header {
+  text-align: center;
+}
+
 .input__geral {
   color: var(--cor-fonte-input);
   background-color: var(--cor-fundo-input);
