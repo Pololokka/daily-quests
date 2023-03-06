@@ -234,7 +234,8 @@ html {
   border-radius: 5px;
 }
 
-.cont__header {
+.cont__header,
+.folder__container {
   text-align: center;
 }
 
