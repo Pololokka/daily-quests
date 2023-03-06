@@ -1,5 +1,6 @@
 import "./Formulario.css";
 import { useState } from "react";
+import Tarefas from "../tarefas/Tarefas";
 
 const Formulario = () => {
   const [titulo, setTitulo] = useState("");
@@ -8,6 +9,10 @@ const Formulario = () => {
   const [etapaS, setEtapaS] = useState("");
   const [etapaT, setEtapaT] = useState("");
   const [etapaQ, setEtapaQ] = useState("");
+
+  const [tarefas, setTarefa] = useState(
+    JSON.parse(localStorage.getItem("arrayAfazeres")) || []
+  );
 
   const salvaTarefa = () => {
     const arrayTarefas = JSON.stringify(tarefas);
@@ -31,6 +36,7 @@ const Formulario = () => {
     tarefas.push(novaTarefa);
 
     salvaTarefa();
+    setTarefa(tarefas);
 
     setTitulo("");
     setTempo("");
@@ -41,104 +47,106 @@ const Formulario = () => {
   };
 
   return (
-    <div className="form__tarefa">
-      <h2 className="subtitulo">O que você vai enfrentar hoje?</h2>
-      <form onSubmit={handleEnvia}>
-        <div className="form__controle">
-          <label htmlFor="titulo" className="texto">
-            E ai, qual o problema?
-          </label>
-          <input
-            type="text"
-            name="titulo"
-            className="texto input__geral"
-            onChange={(evento) => setTitulo(evento.target.value)}
-            value={titulo || ""}
-            placeholder="Pegar minha espada com a dama do lago"
-            required
-          />
-        </div>
+    <>
+      <div className="form__tarefa">
+        <h2 className="subtitulo">O que você vai enfrentar hoje?</h2>
+        <form onSubmit={handleEnvia}>
+          <div className="form__controle">
+            <label htmlFor="titulo" className="texto">
+              E ai, qual o problema?
+            </label>
+            <input
+              type="text"
+              name="titulo"
+              className="texto input__geral"
+              onChange={(evento) => setTitulo(evento.target.value)}
+              value={titulo || ""}
+              placeholder="Pegar minha espada com a dama do lago"
+              required
+            />
+          </div>
 
-        <div className="form__controle">
-          <label htmlFor="tempo" className="texto">
-            E é pra quando?
-          </label>
-          <input
-            type="date"
-            name="tempo"
-            className="texto input__geral"
-            onChange={(evento) => setTempo(evento.target.value)}
-            value={tempo || ""}
-            required
-          />
-        </div>
+          <div className="form__controle">
+            <label htmlFor="tempo" className="texto">
+              E é pra quando?
+            </label>
+            <input
+              type="date"
+              name="tempo"
+              className="texto input__geral"
+              onChange={(evento) => setTempo(evento.target.value)}
+              value={tempo || ""}
+              required
+            />
+          </div>
 
-        <div className="form__controle">
-          <p className="texto">E como que é pra fazer?(Opcional)</p>
-          <label htmlFor="etapa" className="texto">
-            Etapa 1
-          </label>
-          <input
-            type="text"
-            name="etapa"
-            className="texto input__geral"
-            onChange={(evento) => setEtapaP(evento.target.value)}
-            placeholder="Dar um pulo na casa do Merlin"
-            value={etapaP || ""}
-          />
-        </div>
+          <div className="form__controle">
+            <p className="texto">E como que é pra fazer?(Opcional)</p>
+            <label htmlFor="etapa" className="texto">
+              Etapa 1
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaP(evento.target.value)}
+              placeholder="Dar um pulo na casa do Merlin"
+              value={etapaP || ""}
+            />
+          </div>
 
-        <div className="form__controle">
-          <label htmlFor="etapa" className="texto">
-            Etapa 2
-          </label>
-          <input
-            type="text"
-            name="etapa"
-            className="texto input__geral"
-            onChange={(evento) => setEtapaS(evento.target.value)}
-            placeholder="Ver se tá tudo certo com a Guinevere"
-            value={etapaS || ""}
-          />
-        </div>
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 2
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaS(evento.target.value)}
+              placeholder="Ver se tá tudo certo com a Guinevere"
+              value={etapaS || ""}
+            />
+          </div>
 
-        <div className="form__controle">
-          <label htmlFor="etapa" className="texto">
-            Etapa 3
-          </label>
-          <input
-            type="text"
-            name="etapa"
-            className="texto input__geral"
-            onChange={(evento) => setEtapaT(evento.target.value)}
-            placeholder="Mandar um salve pro Lancelot"
-            value={etapaT || ""}
-          />
-        </div>
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 3
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaT(evento.target.value)}
+              placeholder="Mandar um salve pro Lancelot"
+              value={etapaT || ""}
+            />
+          </div>
 
-        <div className="form__controle">
-          <label htmlFor="etapa" className="texto">
-            Etapa 4
-          </label>
-          <input
-            type="text"
-            name="etapa"
-            className="texto input__geral"
-            onChange={(evento) => setEtapaQ(evento.target.value)}
-            placeholder="Pegar a espada e virar rei"
-            value={etapaQ || ""}
-          />
-        </div>
+          <div className="form__controle">
+            <label htmlFor="etapa" className="texto">
+              Etapa 4
+            </label>
+            <input
+              type="text"
+              name="etapa"
+              className="texto input__geral"
+              onChange={(evento) => setEtapaQ(evento.target.value)}
+              placeholder="Pegar a espada e virar rei"
+              value={etapaQ || ""}
+            />
+          </div>
 
-        <input
-          type="submit"
-          className="texto btn__geral"
-          value="Postar Missão"
-        />
-      </form>
-    </div>
+          <input
+            type="submit"
+            className="texto btn__geral"
+            value="Postar Missão"
+          />
+        </form>
+      </div>
+      <Tarefas tarefas={tarefas} setTarefa={setTarefa} />
+    </>
   );
 };
 
 export default Formulario;
-export var tarefas = JSON.parse(localStorage.getItem("arrayAfazeres")) || [];

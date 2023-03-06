@@ -1,19 +1,8 @@
 import "./Tarefas.css";
 import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
-import { useEffect, useState } from "react";
 
-const Tarefas = () => {
+const Tarefas = ({ tarefas, setTarefa }) => {
   let arrayTarefas;
-  const [tarefas, setTarefa] = useState(
-    JSON.parse(localStorage.getItem("arrayAfazeres")) || []
-  );
-
-  useEffect(() => {
-    const tarefasAtualizadas = JSON.parse(
-      localStorage.getItem("arrayAfazeres")
-    );
-    setTarefa(tarefasAtualizadas);
-  });
 
   const salvaTarefa = () => {
     arrayTarefas = JSON.stringify(tarefas);
@@ -58,14 +47,16 @@ const Tarefas = () => {
               {elemento.titulo}
             </h3>
             <span
-              className="icon__style"
+              className="icon__style my-anchor-element"
               onClick={() => handleConcluir(elemento)}
+              data-tooltip-content="Atacar tarefa!"
             >
               <GiBattleAxe />
             </span>
             <span
-              className="icon__style"
+              className="icon__style my-anchor-element"
               onClick={() => handleDeleta(elemento.id)}
+              data-tooltip-content="Despachar o inimigo"
             >
               <GiDreadSkull />
             </span>
@@ -115,7 +106,6 @@ const Tarefas = () => {
           </div>
         ))
       )}
-      {}
     </div>
   );
 };
