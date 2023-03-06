@@ -1,19 +1,8 @@
 import "./Tarefas.css";
 import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
-import { useEffect, useState } from "react";
 
-const Tarefas = () => {
+const Tarefas = ({ tarefas, setTarefa }) => {
   let arrayTarefas;
-  const [tarefas, setTarefa] = useState(
-    JSON.parse(localStorage.getItem("arrayAfazeres")) || []
-  );
-
-  useEffect(() => {
-    const tarefasAtualizadas = JSON.parse(
-      localStorage.getItem("arrayAfazeres")
-    );
-    setTarefa(tarefasAtualizadas);
-  });
 
   const salvaTarefa = () => {
     arrayTarefas = JSON.stringify(tarefas);
@@ -117,7 +106,6 @@ const Tarefas = () => {
           </div>
         ))
       )}
-      {}
     </div>
   );
 };
