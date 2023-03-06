@@ -5,7 +5,6 @@ const Folder = ({ label, children }) => {
 
   const handleToggle = () => {
     setAbrir(!abre);
-    console.log(abre);
   };
 
   return (

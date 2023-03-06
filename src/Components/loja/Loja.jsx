@@ -11,6 +11,9 @@ const Loja = () => {
       <Folder label={"Título"}>
         <Mercador equip={"titulo"} />
       </Folder>
+      <Folder label={"Arma"}>
+        <Mercador equip={"arma"} />
+      </Folder>
     </section>
   );
 };
