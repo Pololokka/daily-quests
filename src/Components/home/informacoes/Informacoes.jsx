@@ -5,6 +5,9 @@ const Informacoes = () => {
   const [nome, setNome] = useState("Inizad");
   const [classe, setClasse] = useState("Cidadão");
   const [titulo, setTitulo] = useState("Pagador/a de Taxas");
+  const [exp, setExp] = useState(0);
+  const [nivel, setNivel] = useState(1);
+  const [dinheiro, setDinheiro] = useState(0);
 
   const puxaItens = () => {
     const itensCarregados = JSON.parse(localStorage.getItem("arrayEquipados"));
@@ -59,6 +62,9 @@ const Informacoes = () => {
         <p className="texto">
           {nome}, {classe}, {titulo}
         </p>
+        <p className="texto">Nível {nivel}</p>
+        <p className="texto">EXP {exp}/100</p>
+        <p className="texto">Ouro: {dinheiro}</p>
       </div>
     </div>
   );

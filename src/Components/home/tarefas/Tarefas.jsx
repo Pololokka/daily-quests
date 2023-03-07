@@ -46,6 +46,13 @@ const Tarefas = ({ tarefas, setTarefa }) => {
             >
               {elemento.titulo}
             </h3>
+            <p
+              className={
+                elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"
+              }
+            >
+              EXP: {elemento.exp}
+            </p>
             <span
               className="icon__style my-anchor-element"
               onClick={() => handleConcluir(elemento)}

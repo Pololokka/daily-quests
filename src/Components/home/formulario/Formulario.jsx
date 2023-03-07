@@ -24,6 +24,7 @@ const Formulario = () => {
 
     const novaTarefa = {
       id: Math.random(),
+      exp: Math.ceil(Math.random() * 20) + 3,
       titulo,
       tempo,
       etapaP,
