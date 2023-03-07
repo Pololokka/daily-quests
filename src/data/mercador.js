@@ -356,7 +356,7 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
   arma: [
     {
       id: 200,
-      nome: <GiSharpAxe />,
+      nome: "GiSharpAxe",
       preco: 10,
       comprado: false,
     },
@@ -530,6 +530,13 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
     },
   ],
 };
+
+export const armasProMap = [
+  {
+    id: 200,
+    nome: <GiSharpAxe />,
+  },
+];
 
 export const salvaMercador = () => {
   const arrayItensLoja = JSON.stringify(mercador);
