@@ -16,17 +16,14 @@ const Mercador = ({ equip }) => {
   const salvaEquipamento = () => {
     const arrayItensSalvos = JSON.stringify(itensEquipados);
     localStorage.setItem("arrayEquipados", arrayItensSalvos);
-    console.log("salva");
   };
 
   const filtraEquipamento = () => {
     const index = itensEquipados.findIndex(
       (elemento) => elemento.tipo === equip
     );
-    console.log(index);
     if (index > -1) {
       itensEquipados.splice(index, 1);
-      console.log("tá no ig");
     }
   };
 
