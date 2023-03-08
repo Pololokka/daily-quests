@@ -734,30 +734,24 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
     },
     {
       id: 323,
-      nome: "GiWarhammer",
-      preco: 25,
-      comprado: false,
-    },
-    {
-      id: 324,
       nome: "GiVikingHead",
       preco: 25,
       comprado: false,
     },
     {
-      id: 325,
+      id: 324,
       nome: "GiWarlockHood",
       preco: 25,
       comprado: false,
     },
     {
-      id: 326,
+      id: 325,
       nome: "GiBarbarian",
       preco: 25,
       comprado: false,
     },
     {
-      id: 327,
+      id: 326,
       nome: "GiDragonHead",
       preco: 25,
       comprado: false,
