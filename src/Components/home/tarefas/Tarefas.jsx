@@ -1,5 +1,5 @@
 import "./Tarefas.css";
-import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
+import { GiDreadSkull } from "react-icons/gi";
 import { armasProMap } from "../../../data/armasMap";
 import { useState, useEffect } from "react";
 
