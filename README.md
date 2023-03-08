@@ -2,7 +2,7 @@
 
 # Daily Quests
 
-Um to-do com temática rpg
+Um aplicativo de to-do com uma temática RPG, onde o usuário ganha recompensas com base no seu progresso, e pode comprar itens em uma loja dentro do próprio app.
 
 ## Tecnologias
 
@@ -15,7 +15,34 @@ Um to-do com temática rpg
 
 ### Home
 
-Página onde o usuário pode adicionar e completar suas tarefas.
+Página onde o usuário pode adicionar e completar suas tarefas. Nesta página também são exibidas as informações(nome, classe, e título) do jogador, assim como demais itens equipados.
+
+![Informações do usuário](https://cdn.discordapp.com/attachments/621499803884584998/1083148879849082962/image.png)
+![Formulário de novas tarefas](https://cdn.discordapp.com/attachments/621499803884584998/1083148989882450020/image.png)
+![Exibição de tarefas](https://cdn.discordapp.com/attachments/621499803884584998/1083149100909863054/image.png)
+
+### Mercador
+
+Página onde o jogador pode comprar e equipar seus itens
+
+![Página do Mercador com as pastas fechadas](https://cdn.discordapp.com/attachments/621499803884584998/1083149267998355456/image.png)
+![Página do Mercador com uma pasta aberta](https://cdn.discordapp.com/attachments/621499803884584998/1083149379646541904/image.png)
+
+## Roadmap
+
+Este projeto foi desenvolvido em 7 dias, então ainda gostaria de adicionar algumas novas funcionalidades, conforme abaixo.
+
+- [ ] - Melhorar o método de atualização do dinheiro na página "Mercador"
+- [ ] - incluir exp
+- [ ] - incluir nível
+- [ ] - fazer o ganho de dinheiro ser através do nível
+- [ ] - mais itens e categorias de itens disponíveis para a compra
+
+## Sobre
+
+Foi muito gratificante realizar esse projeto, ainda mais por se tratar do meu segundo projeto utilizando React. Tive várias dificuldades no caminho, como o bom uso do useEffect, e melhor utilização de componentes, porém, sempre tive auxílio de colegas para ajudar com minhas dúvidas.
+
+Comparando este projeto com meu anterior, sinto que progredi bastante, mas ainda posso aprender mais(até porque, nunca paramos de aprender!). Neste projeto tive menos dificuldades, somente tendo alguns problemas em questões mais pontuais. Também tive mais acertos, utilizando de maneira melhor as funções do React, e entendendo melhor como utilizar esta ferramenta.
 
 ## Licença
 
