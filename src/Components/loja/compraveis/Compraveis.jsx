@@ -1,6 +1,6 @@
 import "./Compraveis.css";
 import { mercador } from "../../../data/mercador";
-import { armasProMap } from "../../../data/mercador";
+import { armasProMap } from "../../../data/armasMap";
 import { useState, useEffect } from "react";
 import { GiCoinflip, GiBackpack } from "react-icons/gi";
 import { salvaMercador } from "../../../data/mercador";
@@ -53,7 +53,7 @@ const Mercador = ({ equip }) => {
         return (
           <div className="compravel__card" key={elemento.id}>
             {equip === "arma" ? (
-              <h3 className="subtitulo">{armasProMap.nome}</h3>
+              <h3 className="subtitulo">{armasProMap[elemento.nome]}</h3>
             ) : (
               <h3 className="subtitulo">{elemento.nome}</h3>
             )}

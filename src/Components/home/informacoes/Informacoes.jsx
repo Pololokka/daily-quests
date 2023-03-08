@@ -11,18 +11,25 @@ const Informacoes = () => {
 
   const puxaItens = () => {
     const itensCarregados = JSON.parse(localStorage.getItem("arrayEquipados"));
+    let pegaClasse;
+    let pegaTitulo;
 
     if (Array.isArray(itensCarregados)) {
-      const pegaClasse = itensCarregados?.find(
-        (elemento) => elemento.tipo === "classe"
-      );
+      if (
+        (pegaClasse = itensCarregados?.find(
+          (elemento) => elemento.tipo === "classe"
+        ))
+      ) {
+        setClasse(pegaClasse.nome);
+      }
 
-      const pegaTitulo = itensCarregados?.find(
-        (elemento) => elemento.tipo === "titulo"
-      );
-
-      setClasse(pegaClasse.nome);
-      setTitulo(pegaTitulo.nome);
+      if (
+        (pegaTitulo = itensCarregados?.find(
+          (elemento) => elemento.tipo === "titulo"
+        ))
+      ) {
+        setTitulo(pegaTitulo.nome);
+      }
     }
   };
 

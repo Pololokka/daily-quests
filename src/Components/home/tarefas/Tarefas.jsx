@@ -1,13 +1,32 @@
 import "./Tarefas.css";
 import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
+import { useState } from "react";
 
 const Tarefas = ({ tarefas, setTarefa }) => {
+  const [arma, setArma] = useState(<GiBattleAxe />);
   let arrayTarefas;
 
   const salvaTarefa = () => {
     arrayTarefas = JSON.stringify(tarefas);
     localStorage.setItem("arrayAfazeres", arrayTarefas);
   };
+
+  const puxaArma = () => {
+    const itensCarregados = JSON.parse(localStorage.getItem("arrayEquipados"));
+    let pegaArma;
+
+    if (Array.isArray(itensCarregados)) {
+      if (
+        (pegaArma = itensCarregados?.find(
+          (elemento) => elemento.tipo === "arma"
+        ))
+      ) {
+        setArma(pegaArma.nome);
+      }
+    }
+  };
+
+  puxaArma();
 
   const handleDeleta = (id) => {
     const index = tarefas.findIndex((elemento) => elemento.id === id);
@@ -58,7 +77,7 @@ const Tarefas = ({ tarefas, setTarefa }) => {
               onClick={() => handleConcluir(elemento)}
               data-tooltip-content="Atacar tarefa!"
             >
-              <GiBattleAxe />
+              {arma}
             </span>
             <span
               className="icon__style my-anchor-element"

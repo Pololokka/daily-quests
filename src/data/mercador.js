@@ -1,5 +1,3 @@
-import { GiSharpAxe } from "react-icons/gi";
-
 export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
   classe: [
     {
@@ -311,7 +309,7 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
       comprado: false,
     },
     {
-      id: 1122,
+      id: 122,
       nome: "Passageira do Futuro",
       preco: 10,
       comprado: false,
@@ -362,37 +360,37 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
     },
     {
       id: 201,
-      nome: "Esmagadora de Crânios",
+      nome: "GiCrossedAxes",
       preco: 10,
       comprado: false,
     },
     {
       id: 202,
-      nome: "Matador de Porcos",
+      nome: "GiStoneAxe",
       preco: 10,
       comprado: false,
     },
     {
       id: 203,
-      nome: "Matadora de Porcos",
+      nome: "GiWarAxe",
       preco: 10,
       comprado: false,
     },
     {
       id: 204,
-      nome: "O Libertador",
+      nome: "GiMagicAxe",
       preco: 10,
       comprado: false,
     },
     {
       id: 205,
-      nome: "A Libertadora",
+      nome: "GiAxeSwing",
       preco: 10,
       comprado: false,
     },
     {
       id: 206,
-      nome: "Degustador de Tortas",
+      nome: "GiAncientSword",
       preco: 10,
       comprado: false,
     },
@@ -404,55 +402,55 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
     },
     {
       id: 208,
-      nome: "Habitante das Sombras",
+      nome: "GiBloodySword",
       preco: 10,
       comprado: false,
     },
     {
       id: 209,
-      nome: "Lenda Esquecida",
+      nome: "GiBouncingSword",
       preco: 10,
       comprado: false,
     },
     {
       id: 210,
-      nome: "O Renegado",
+      nome: "GiEnergySword",
       preco: 10,
       comprado: false,
     },
     {
       id: 211,
-      nome: "A Renegada",
+      nome: "GiRustySword",
       preco: 10,
       comprado: false,
     },
     {
       id: 212,
-      nome: "Tormenta Marítma",
+      nome: "GiBowArrow",
       preco: 10,
       comprado: false,
     },
     {
       id: 213,
-      nome: "O Rompe-Céus",
+      nome: "GiLightningBow",
       preco: 10,
       comprado: false,
     },
     {
       id: 214,
-      nome: "A Rompe-Céus",
+      nome: "GiCrossbow",
       preco: 10,
       comprado: false,
     },
     {
       id: 215,
-      nome: "Caçador de Ratos",
+      nome: "GiBoneKnife",
       preco: 10,
       comprado: false,
     },
     {
       id: 216,
-      nome: "Caçadora de Ratos",
+      nome: "GiBowieKnife",
       preco: 10,
       comprado: false,
     },
@@ -470,73 +468,150 @@ export const mercador = JSON.parse(localStorage.getItem("arrayMercador")) || {
     },
     {
       id: 219,
-      nome: "Vendedor de Peixes",
+      nome: "GiCurvyKnife",
       preco: 10,
       comprado: false,
     },
     {
       id: 220,
-      nome: "Vendedora de Peixes",
+      nome: "GiThrownKnife",
       preco: 10,
       comprado: false,
     },
     {
       id: 221,
-      nome: "Passageiro do Futuro",
+      nome: "GiKnifeThrust",
       preco: 10,
       comprado: false,
     },
     {
       id: 222,
-      nome: "Passageira do Futuro",
+      nome: "GiClawHammer",
       preco: 10,
       comprado: false,
     },
     {
       id: 223,
-      nome: "Invocador das Sombras",
+      nome: "GiFlatHammer",
       preco: 10,
       comprado: false,
     },
     {
       id: 224,
-      nome: "Invocador das Sombras",
+      nome: "GiHammerDrop",
       preco: 10,
       comprado: false,
     },
     {
       id: 225,
-      nome: "Inimigo de Repolhos",
+      nome: "GiThorHammer",
       preco: 10,
       comprado: false,
     },
     {
       id: 226,
-      nome: "Inimiga de Repolhos",
+      nome: "GiWarhammer",
       preco: 10,
       comprado: false,
     },
     {
       id: 227,
-      nome: "Codificador de Caminhos",
+      nome: "GiArmorPunch",
       preco: 10,
       comprado: false,
     },
     {
       id: 228,
-      nome: "Codificadora de Caminhos",
+      nome: "GiArmoredBoomerang",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 229,
+      nome: "GiBaseballBat",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 230,
+      nome: "GiBatLeth",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 231,
+      nome: "GiBoomerangCross",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 232,
+      nome: "GiBoneMace",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 233,
+      nome: "GiBoomerang",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 234,
+      nome: "GiBootStomp",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 235,
+      nome: "GiCrystalWand",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 236,
+      nome: "GiLunarWand",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 237,
+      nome: "GiFairyWand",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 238,
+      nome: "GiOrbWand",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 239,
+      nome: "GiOrbit",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 240,
+      nome: "GiSkullStaff",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 241,
+      nome: "GiWizardStaff",
+      preco: 10,
+      comprado: false,
+    },
+    {
+      id: 242,
+      nome: "GiCrescentStaff",
       preco: 10,
       comprado: false,
     },
   ],
 };
-
-export const armasProMap = [
-  {
-    id: 200,
-    nome: <GiSharpAxe />,
-  },
-];
 
 export const salvaMercador = () => {
   const arrayItensLoja = JSON.stringify(mercador);
