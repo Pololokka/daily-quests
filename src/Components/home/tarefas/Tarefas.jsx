@@ -1,6 +1,7 @@
 import "./Tarefas.css";
 import { GiBattleAxe, GiDreadSkull } from "react-icons/gi";
-import { useState } from "react";
+import { armasProMap } from "../../../data/armasMap";
+import { useState, useEffect } from "react";
 
 const Tarefas = ({ tarefas, setTarefa }) => {
   const [arma, setArma] = useState(<GiBattleAxe />);
@@ -26,7 +27,9 @@ const Tarefas = ({ tarefas, setTarefa }) => {
     }
   };
 
-  puxaArma();
+  useEffect(() => {
+    puxaArma();
+  }, []);
 
   const handleDeleta = (id) => {
     const index = tarefas.findIndex((elemento) => elemento.id === id);
@@ -77,7 +80,7 @@ const Tarefas = ({ tarefas, setTarefa }) => {
               onClick={() => handleConcluir(elemento)}
               data-tooltip-content="Atacar tarefa!"
             >
-              {arma}
+              {armasProMap[arma]}
             </span>
             <span
               className="icon__style my-anchor-element"
