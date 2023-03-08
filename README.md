@@ -2,7 +2,7 @@
 
 # Daily Quests
 
-Um aplicativo de to-do com uma temática RPG, onde o usuário ganha recompensas com base no seu progresso, e pode comprar itens em uma loja dentro do próprio app.
+Um aplicativo de to-do com uma temática RPG, onde o usuário ganha recompensas ao completar e finalizar uma tarefa. Com estas recompensando, o usuário pode então comprar itens em uma loja dentro do próprio app, para customizar mais ainda a experiência.
 
 ## Tecnologias
 
