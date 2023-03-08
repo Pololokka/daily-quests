@@ -4,7 +4,7 @@ import { armasProMap } from "../../../data/armasMap";
 import { useState, useEffect } from "react";
 
 const Tarefas = ({ tarefas, setTarefa }) => {
-  const [arma, setArma] = useState(<GiBattleAxe />);
+  const [arma, setArma] = useState("GiBattleAxe");
   let arrayTarefas;
 
   const salvaTarefa = () => {
@@ -31,14 +31,25 @@ const Tarefas = ({ tarefas, setTarefa }) => {
     puxaArma();
   }, []);
 
-  const handleDeleta = (id) => {
-    const index = tarefas.findIndex((elemento) => elemento.id === id);
+  const handleDeleta = (tarefa) => {
+    const index = tarefas.findIndex((elemento) => elemento.id === tarefa.id);
+    console.log(tarefa.feita);
+    if (tarefa.feita) {
+      const dinheiroSalvo =
+        JSON.parse(localStorage.getItem("dinheiroRecebido")) || 0;
+      let dinheiroGanho = parseInt(tarefa.dinheiro + dinheiroSalvo);
+      const variavelDinheiroGanho = JSON.stringify(dinheiroGanho);
+      localStorage.setItem("dinheiroRecebido", variavelDinheiroGanho);
+      console.log(dinheiroGanho);
+    }
 
     tarefas.splice(index, 1);
 
     salvaTarefa();
 
-    setTarefa((prevState) => prevState.filter((tarefas) => tarefas.id !== id));
+    setTarefa((prevState) =>
+      prevState.filter((tarefas) => tarefas.id !== tarefa.id)
+    );
   };
 
   const handleConcluir = (elemento) => {
@@ -73,7 +84,7 @@ const Tarefas = ({ tarefas, setTarefa }) => {
                 elemento.feita ? "texto__tarefa-feita" : "texto__tarefa"
               }
             >
-              EXP: {elemento.exp}
+              Dinheiro: {elemento.dinheiro}
             </p>
             <span
               className="icon__style my-anchor-element"
@@ -84,7 +95,7 @@ const Tarefas = ({ tarefas, setTarefa }) => {
             </span>
             <span
               className="icon__style my-anchor-element"
-              onClick={() => handleDeleta(elemento.id)}
+              onClick={() => handleDeleta(elemento)}
               data-tooltip-content="Despachar o inimigo"
             >
               <GiDreadSkull />

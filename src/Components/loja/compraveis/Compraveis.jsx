@@ -11,6 +11,8 @@ const Mercador = ({ equip }) => {
   const itensEquipados =
     JSON.parse(localStorage.getItem("arrayEquipados")) || [];
 
+  let dinheiroSalvo = JSON.parse(localStorage.getItem("dinheiroRecebido")) || 0;
+
   useEffect(() => {}, [comprado]);
 
   const salvaEquipamento = () => {
@@ -28,9 +30,14 @@ const Mercador = ({ equip }) => {
   };
 
   const handleCompra = (evento) => {
-    evento.comprado = true;
-    salvaMercador();
-    setComprado(!comprado);
+    if (evento.preco <= dinheiroSalvo) {
+      evento.comprado = true;
+      salvaMercador();
+      setComprado(!comprado);
+      dinheiroSalvo -= evento.preco;
+      const variavelDinheiroSalvo = JSON.stringify(dinheiroSalvo);
+      localStorage.setItem("dinheiroRecebido", variavelDinheiroSalvo);
+    }
   };
 
   const handleEquipa = (evento) => {

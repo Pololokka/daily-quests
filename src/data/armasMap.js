@@ -1,4 +1,5 @@
 import {
+  GiBattleAxe,
   GiSharpAxe,
   GiCrossedAxes,
   GiStoneAxe,
@@ -42,6 +43,7 @@ import {
 } from "react-icons/gi";
 
 export const armasProMap = {
+  GiBattleAxe: <GiBattleAxe />,
   GiSharpAxe: <GiSharpAxe />,
   GiCrossedAxes: <GiCrossedAxes />,
   GiStoneAxe: <GiStoneAxe />,
