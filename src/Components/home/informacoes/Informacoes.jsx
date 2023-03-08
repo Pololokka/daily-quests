@@ -2,18 +2,42 @@ import "./Informacoes.css";
 import { useState, useEffect } from "react";
 
 const Informacoes = () => {
-  const [nome, setNome] = useState("");
-  let userInfo = {
-    classe: "Cidadão",
-    titulo: "Pagador/a de taxas",
+  const [nome, setNome] = useState("Inizad");
+  const [classe, setClasse] = useState("Cidadão");
+  const [titulo, setTitulo] = useState("Pagador/a de Taxas");
+  //const [exp, setExp] = useState(0);
+  //const [nivel, setNivel] = useState(1);
+  //const [dinheiro, setDinheiro] = useState(0);
+  //let expTotal = 0;
+
+  const puxaItens = () => {
+    const itensCarregados = JSON.parse(localStorage.getItem("arrayEquipados"));
+    let pegaClasse;
+    let pegaTitulo;
+
+    if (Array.isArray(itensCarregados)) {
+      if (
+        (pegaClasse = itensCarregados?.find(
+          (elemento) => elemento.tipo === "classe"
+        ))
+      ) {
+        setClasse(pegaClasse.nome);
+      }
+
+      if (
+        (pegaTitulo = itensCarregados?.find(
+          (elemento) => elemento.tipo === "titulo"
+        ))
+      ) {
+        setTitulo(pegaTitulo.nome);
+      }
+    }
   };
-  // pega info do local storage pra colocar na tela
-  //   const puxaItens = () => {
-  //   };
 
   useEffect(() => {
     const nomeSalvo = JSON.parse(localStorage.getItem("nomeJogador"));
     setNome(nomeSalvo);
+    puxaItens();
   }, []);
 
   const salvaItens = (valor) => {
@@ -44,7 +68,7 @@ const Informacoes = () => {
       <div className="tarefas__container">
         <h2 className="subtitulo">Ficha</h2>
         <p className="texto">
-          {nome}, {userInfo.classe}, {userInfo.titulo}
+          {nome}, {classe}, {titulo}
         </p>
       </div>
     </div>

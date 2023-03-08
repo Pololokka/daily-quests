@@ -24,6 +24,7 @@ const Formulario = () => {
 
     const novaTarefa = {
       id: Math.random(),
+      dinheiro: Math.ceil(Math.random() * 5) + 3,
       titulo,
       tempo,
       etapaP,
