@@ -32,11 +32,11 @@ Página onde o jogador pode comprar e equipar seus itens
 
 Este projeto foi desenvolvido em 7 dias, então ainda gostaria de adicionar algumas novas funcionalidades, conforme abaixo.
 
-[] - Melhorar o método de atualização do dinheiro na página "Mercador"
-[] - incluir exp
-[] - incluir nível
-[] - fazer o ganho de dinheiro ser através do nível
-[] - mais itens e categorias de itens disponíveis para a compra
+[ ] - Melhorar o método de atualização do dinheiro na página "Mercador"
+[ ] - incluir exp
+[ ] - incluir nível
+[ ] - fazer o ganho de dinheiro ser através do nível
+[ ] - mais itens e categorias de itens disponíveis para a compra
 
 ## Sobre
 
