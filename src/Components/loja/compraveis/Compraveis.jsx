@@ -31,7 +31,7 @@ const Mercador = ({ equip }) => {
   };
 
   const handleCompra = (evento) => {
-    if (evento.preco <= dinheiroSalvo) {
+    if (evento.preco >= dinheiroSalvo) {
       evento.comprado = true;
       salvaMercador();
       setComprado(!comprado);
