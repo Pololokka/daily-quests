@@ -1,10 +1,11 @@
 import "./Tarefas.css";
-import { GiDreadSkull } from "react-icons/gi";
+import { inimigosProMap } from "../../../data/InimigoMap";
 import { armasProMap } from "../../../data/armasMap";
 import { useState, useEffect } from "react";
 
 const Tarefas = ({ tarefas, setTarefa }) => {
   const [arma, setArma] = useState("GiBattleAxe");
+  const [inimigo, setInimigo] = useState("GiDreadSkull");
   let arrayTarefas;
 
   const salvaTarefa = () => {
@@ -27,8 +28,24 @@ const Tarefas = ({ tarefas, setTarefa }) => {
     }
   };
 
+  const puxaInimigo = () => {
+    const itensCarregados = JSON.parse(localStorage.getItem("arrayEquipados"));
+    let pegaInimigo;
+
+    if (Array.isArray(itensCarregados)) {
+      if (
+        (pegaInimigo = itensCarregados?.find(
+          (elemento) => elemento.tipo === "inimigo"
+        ))
+      ) {
+        setInimigo(pegaInimigo.nome);
+      }
+    }
+  };
+
   useEffect(() => {
     puxaArma();
+    puxaInimigo();
   }, []);
 
   const handleDeleta = (tarefa) => {
@@ -98,7 +115,7 @@ const Tarefas = ({ tarefas, setTarefa }) => {
               onClick={() => handleDeleta(elemento)}
               data-tooltip-content="Despachar o inimigo"
             >
-              <GiDreadSkull />
+              {inimigosProMap[inimigo]}
             </span>
             <p
               className={

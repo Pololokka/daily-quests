@@ -1,6 +1,7 @@
 import "./Compraveis.css";
 import { mercador } from "../../../data/mercador";
 import { armasProMap } from "../../../data/armasMap";
+import { inimigosProMap } from "../../../data/InimigoMap";
 import { useState, useEffect } from "react";
 import { GiCoinflip, GiBackpack } from "react-icons/gi";
 import { salvaMercador } from "../../../data/mercador";
@@ -30,13 +31,14 @@ const Mercador = ({ equip }) => {
   };
 
   const handleCompra = (evento) => {
-    if (evento.preco <= dinheiroSalvo) {
+    if (evento.preco >= dinheiroSalvo) {
       evento.comprado = true;
       salvaMercador();
       setComprado(!comprado);
       dinheiroSalvo -= evento.preco;
       const variavelDinheiroSalvo = JSON.stringify(dinheiroSalvo);
       localStorage.setItem("dinheiroRecebido", variavelDinheiroSalvo);
+      window.location.reload(false);
     }
   };
 
@@ -61,6 +63,8 @@ const Mercador = ({ equip }) => {
           <div className="compravel__card" key={elemento.id}>
             {equip === "arma" ? (
               <h3 className="subtitulo">{armasProMap[elemento.nome]}</h3>
+            ) : equip === "inimigo" ? (
+              <h3 className="subtitulo">{inimigosProMap[elemento.nome]}</h3>
             ) : (
               <h3 className="subtitulo">{elemento.nome}</h3>
             )}
