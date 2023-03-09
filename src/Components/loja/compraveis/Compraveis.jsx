@@ -38,7 +38,6 @@ const Mercador = ({ equip }) => {
       dinheiroSalvo -= evento.preco;
       const variavelDinheiroSalvo = JSON.stringify(dinheiroSalvo);
       localStorage.setItem("dinheiroRecebido", variavelDinheiroSalvo);
-      window.location.reload();
     }
   };
 
